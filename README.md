@@ -287,3 +287,22 @@ func debugLogf(str string, args ...any) {
 	return
 }
 ```
+
+#### Optional Arguments
+
+Golang doesn't have optional arguments. Best workaround is to use variadic arguments:
+
+```go
+func foo(params ...string) {
+    for i, j := range params {
+       fmt.Printf("%d: %s\n", i, j)
+    }
+}
+
+func main() {
+    foo()            // argument is 'optional'
+    foo("1")
+    foo("1","2")
+    foo("1","2","3")
+}
+```
